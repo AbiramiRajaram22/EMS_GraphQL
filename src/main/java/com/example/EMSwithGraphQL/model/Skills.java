@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Skills {
     @Id
+    @GeneratedValue
     public Long elementId;
     public String skillName;
     public String level;

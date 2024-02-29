@@ -1,24 +1,26 @@
 package com.example.EMSwithGraphQL.model;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Relationship;
-
-import java.util.List;
 
 @Node
-@Data
+//@Data
 @NoArgsConstructor
 public class Employee {
     @Id @GeneratedValue
     public Long elementId;
-    public String empName;
-    public String designation;
-    @Relationship(type = "MHE", direction = Relationship.Direction.INCOMING)
-    public List<Project> mheProjects;
-    @Relationship(type = "TNF", direction = Relationship.Direction.INCOMING)
-    public List<Project> tnfProjects;
+    public String empId;
+    public  String empName;
+    public String dateOfHire;
+    public String mailId;
+    public Double prevExp;
+    public Double triconExp;
+    public Double totalExp;
+    public String billingStatus;
+    public String remarks;
+    public String leaderPipeline;
+    public String businessAccumen;
+    public String coachable;
 }
