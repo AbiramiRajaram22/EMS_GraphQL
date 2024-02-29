@@ -21,10 +21,18 @@ public class SkillService {
         return skillRepository.findAll();
     }
 
-    public Skills createSkills(String skillName, List<String> projects) {
+    public Skills createSkill(String skillName) {
         Skills skill = new Skills();
         skill.skillName = skillName;
         skillRepository.save(skill);
         return skill;
+    }
+
+    public Skills updateSkill(Long skillId, String skillName) {
+        return skillRepository.updateSkill(skillName, skillId);
+    }
+
+    public void deleteSkill(Long skillId) {
+        skillRepository.deleteSkill(skillId);
     }
 }

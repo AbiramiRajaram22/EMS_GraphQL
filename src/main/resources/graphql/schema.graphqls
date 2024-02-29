@@ -1,34 +1,21 @@
 # Root Queries
 type Query {
-    employee(empName: String!): Employee!
     employees: [Employee]!
-    projects: [Project]
-    skills: [Skills]
-    fetchEmployeeProjects (empName: String!): Employee!
+    employee(empName: String!): Employee!
 }
 
 type Employee {
     elementId: ID
-    empName: String
-    designation: String
-    mheProjects: [Project!]!
-    tnfProjects: [Project!]!
-}
-
-type Project {
-    elementId: ID
-    name: String
-    skills: [Skills]
-}
-
-type Skills {
-    elementId: ID
-    skillName: String
-    level: String
-}
-
-type Mutation {
-    createSkill(skillName:String, projects:[String]) : String
-    updateSkill(elementId:ID, skillName:String) : Skills
-    deleteSkill(elementId:ID) : String
+    empId : String
+    empName : String
+    dateOfHire : String
+    mailId : String
+    prevExp : Float
+    triconExp : Float
+    totalExp : Float
+    billingStatus : String
+    remarks : String
+    leaderPipeline : String
+    businessAccumen : String
+    coachable : String
 }

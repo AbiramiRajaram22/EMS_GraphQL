@@ -17,8 +17,10 @@ public interface SkillRepository extends Neo4jRepository<Skills, Long> {
             "RETURN COLLECT({elementId: ID(s), skillName: s.skillName, level:type(r)}) as skills")
     List<Skills> fetchSkillsByProject(@Param("employeeId") Long employeeId, @Param("projectId") Long projectId);
 
-    @Query("MATCH (s:Skills) WHERE ID(s) = $elementId SET s.skillName = $skillName")
+    @Query("MATCH (s:Skills) WHERE ID(s) = $elementId SET s.skillName = $skillName return s")// return {elementId: ID(s), skillName: s.skillName} as s")
     Skills updateSkill(@Param("skillName") String skillName, @Param("elementId") Long elementId);
+    @Query("MATCH (s:Skills) WHERE ID(s) = $elementId  DETACH DELETE s")
+    Skills deleteSkill(@Param("elementId") Long elementId);
 
     @Query("MATCH (s:Skills) return COLLECT({elementId: ID(s), skillName: s.skillName}) as skills")
     List<Skills> findAll();
